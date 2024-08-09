@@ -306,8 +306,8 @@ a {
         position: absolute;
         display: flex;
         justify-content: center;
-        top: 10px;
-        left: 15px;
+        top: 9px;
+        left: 14px;
     }
 
     .navInactive .btnMenu {

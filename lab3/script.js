@@ -117,33 +117,6 @@ btnNext.addEventListener("click", () => {
   changeImage(1);
 });
 
-// thumbnails.forEach((thumbnail, index) => {
-//   thumbnail.addEventListener("click", () => {
-//     modal.style.display = "block";
-//     setTimeout(() => {
-//       modal.classList.add("show");
-//     }, 10);
-//     modalImg.src = thumbnail.src;
-//     captionText.innerHTML = thumbnail.alt;
-//     currentIndex = index;
-//   });
-// });
-
-// document.querySelector(".close").addEventListener("click", () => {
-//   modal.classList.remove("show");
-//   setTimeout(() => {
-//     modal.style.display = "none";
-//   }, 500);
-// });
-
-// document.querySelector(".prev").addEventListener("click", () => {
-//   changeImage(-1);
-// });
-
-// document.querySelector(".next").addEventListener("click", () => {
-//   changeImage(1);
-// });
-
 function changeImage(direction) {
   modalImg.classList.add("fade-in");
   currentIndex =
@@ -159,8 +132,5 @@ function changeImage(direction) {
     modalImg.style.transform = "translateX(0)";
     modalImg.style.transition =
       "transform 1s ease-in-out, opacity 1s ease-in-out";
-    // setTimeout(() => {
-    //   modalImg.style.transform = "translateX(0)";
-    // }, 100);
   }, 800);
 }

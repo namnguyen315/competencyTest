@@ -53,6 +53,7 @@ h1{
     padding-left: 10px;
     box-sizing: border-box;
     color: #5F6F65 ;
+    font-family: "Dancing Script", cursive;
 }
 
 .block .errorMessage{
@@ -64,6 +65,7 @@ h1{
     align-items: start;
     padding-top: 10px;
     box-sizing: border-box;
+    font-family: "Dancing Script", cursive;
 }
 
 button{

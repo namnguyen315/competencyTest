@@ -1,0 +1,207 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url(./images/image1.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    font-family: "Roboto", sans-serif;
+}
+
+.container{
+
+    margin-top: 100px;
+    width: 500px;
+    height: 180px;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(40px);
+    border: white 2px solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 1s ease-in-out;
+}
+
+h1{
+    color: #F7EFE5;
+}
+
+.searchContainer{
+    width: 80%;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+}
+
+form{
+    /* background-color: red; */
+    width: calc(100% - 50px);
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+
+}
+
+input{
+    height: 100%;
+    width: calc(100% - 50px);
+    border-radius: 20px;
+    border: none;
+    padding-left: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+button{
+    width: 40px;
+    height: 40px;
+    background-color:#77cde1 ;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover{
+    background-color:#5c9ead ;
+}
+
+button img{
+    border: none;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover img{
+    width: 90%;
+    height: 90%;
+}
+
+button:first-child img{
+    width: 80%;
+    height: 70%;
+}
+
+.weatherResult{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.weatherIcon{
+    width: 400px;
+    height: 250px;
+    object-fit: contain;
+    object-position: center;
+    border: none;
+
+}
+
+.temperature{
+    font-size: 70px;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.city{
+    font-size: 50px;
+    color: white;
+    margin: 0px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.description{
+    font-size: 20px;
+    color: white;
+    margin-top: 0px;
+}
+
+.bottomContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.bottomContainer img{
+    width: 50px;
+    height: 50px;
+}
+
+.humidity , .wind {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+
+.humidity{
+    justify-content: start;
+}
+
+.wind{
+    justify-content: end;
+}
+
+.rightSide , .leftSide {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+
+.humidityText , .windText {
+    color: white;
+    margin-bottom: 0;
+}
+
+.humidityData , .windData {
+    color: white;
+    margin: 0;
+    font-size: 25px;
+}
+
+.rightSide{
+    margin-left: 20px;
+}
+
+.leftSide{
+    margin-right: 20px;
+}
+
+.notFound{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.notFound p{
+    color: white;
+    font-size: 25px;
+}

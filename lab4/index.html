@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Weather App</h1>
+      <div class="searchContainer">
+        <button id="getLocation">
+          <img src="./images/location-icon.png" alt="search icon" />
+        </button>
+        <form id="weatherForm">
+          <input
+            type="text"
+            id="cityInput"
+            placeholder="Enter city name"
+            required
+          />
+          <button type="submit">
+            <img src="./images/search-icon.svg" alt="search icon" />
+          </button>
+        </form>
+      </div>
+      <div id="weatherResult" class="weatherResult">
+        <img class="weatherIcon" id="weatherIcon" />
+        <h2 class="city" id="city"></h2>
+        <h2 class="temperature" id="temperature"></h2>
+        <h2 class="description" id="description"></h2>
+        <div class="bottomContainer">
+          <div class="humidity">
+            <img src="./images/humidity.png" alt="humidity icon" />
+            <div class="rightSide">
+              <p class="humidityData" id="humidityData"></p>
+              <p class="humidityText">Humidity</p>
+            </div>
+          </div>
+          <div class="wind">
+            <div class="leftSide">
+              <p class="windData" id="windData"></p>
+              <p class="windText">Wind</p>
+            </div>
+            <img src="./images/wind.svg" alt="wind icon" />
+          </div>
+        </div>
+      </div>
+      <div class="notFound">
+        <img src="./images/404.png" alt="location not found" width="350px" />
+        <p id="notFoundText">Opps! Location not found!</p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

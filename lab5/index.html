@@ -8,29 +8,39 @@
   </head>
   <body>
     <div class="container">
-      <h1>Customizable Dashboard</h1>
+      <h1 class="title">Customizable Dashboard</h1>
       <div class="dashboard">
         <div
           class="widget"
           draggable="true"
           id="widget1"
-          style="grid-area: 1 / 1 / span 2 / span 2"
+          style="grid-area: 5 / 6 / span 2 / span 3"
         >
-          Widget 2x2
+          <div class="news-widget">
+            <h2>Tin tức mới nhất</h2>
+            <div id="newsContainer"></div>
+          </div>
         </div>
         <div
           class="widget"
           draggable="true"
           id="widget2"
-          style="grid-area: 1 / 3 / span 2 / span 1"
+          style="grid-area: 1 / 6 / span 3 / span 3"
         >
-          Widget 2x1
+          <div class="weather-widget">
+            <h2>Thời tiết hiện tại</h2>
+            <div id="weatherContainer">
+              <p id="location"></p>
+              <p id="temperature"></p>
+              <p id="description"></p>
+            </div>
+          </div>
         </div>
         <div
           class="widget"
           draggable="true"
           id="widget3"
-          style="grid-area: 3 / 1 / span 3 / span 4"
+          style="grid-area: 4 / 1 / span 3 / span 4"
         >
           <div class="calendar">
             <div class="calendar-header">
@@ -50,6 +60,23 @@
               </div>
               <div class="calendar-days" id="calendarDays"></div>
             </div>
+          </div>
+        </div>
+        <div
+          class="widget"
+          draggable="true"
+          id="widget4"
+          style="grid-area: 1 / 1 / span 3 / span 4"
+        >
+          <div class="todo-widget">
+            <h2>Danh sách công việc</h2>
+            <input
+              type="text"
+              id="newTask"
+              placeholder="Thêm công việc mới..."
+            />
+            <button id="addTask">Thêm</button>
+            <ul id="taskList"></ul>
           </div>
         </div>
       </div>

@@ -253,4 +253,87 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
   renderCalendar(currentDate);
+
+  const newsContainer = document.getElementById("newsContainer");
+
+  // Dữ liệu tin tức mẫu
+  const newsData = [
+    {
+      title: "Tin tức 1",
+      description: "Mô tả ngắn gọn về tin tức 1.",
+    },
+    {
+      title: "Tin tức 2",
+      description: "Mô tả ngắn gọn về tin tức 2.",
+    },
+    {
+      title: "Tin tức 3",
+      description: "Mô tả ngắn gọn về tin tức 3.",
+    },
+  ];
+
+  // Hàm hiển thị tin tức
+  function displayNews(news) {
+    newsContainer.innerHTML = "";
+    news.forEach((item) => {
+      const newsItem = document.createElement("div");
+      newsItem.classList.add("news-item");
+      newsItem.innerHTML = `
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
+            `;
+      newsContainer.appendChild(newsItem);
+    });
+  }
+
+  // Hiển thị tin tức mẫu
+  displayNews(newsData);
+
+  const apiKey = "684b77547c7b6534f56cf19151367908"; // Thay thế bằng API key của bạn
+  const city = "Hanoi"; // Thay thế bằng tên thành phố của bạn
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=vi`;
+
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      const location = document.getElementById("location");
+      const temperature = document.getElementById("temperature");
+      const description = document.getElementById("description");
+
+      location.textContent = `Vị trí: ${data.name}, ${data.sys.country}`;
+      temperature.textContent = `Nhiệt độ: ${data.main.temp}°C`;
+      description.textContent = `Điều kiện: ${data.weather[0].description}`;
+    })
+    .catch((error) => {
+      console.error("Error fetching weather data:", error);
+    });
+
+  const addTaskButton = document.getElementById("addTask");
+  const newTaskInput = document.getElementById("newTask");
+  const taskList = document.getElementById("taskList");
+
+  addTaskButton.addEventListener("click", addTask);
+  newTaskInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      addTask();
+    }
+  });
+
+  function addTask() {
+    const taskText = newTaskInput.value.trim();
+    if (taskText !== "") {
+      const listItem = document.createElement("li");
+      listItem.innerHTML = `
+                <span>${taskText}</span>
+                <button onclick="removeTask(this)">Xóa</button>
+            `;
+      taskList.appendChild(listItem);
+      newTaskInput.value = "";
+    }
+  }
+
+  window.removeTask = function (button) {
+    const listItem = button.parentElement;
+    taskList.removeChild(listItem);
+  };
 });

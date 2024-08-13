@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Biểu đồ đường</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <select id="cryptoSelect">
+      <option value="bitcoin">Bitcoin</option>
+      <option value="ethereum">Ethereum</option>
+      <option value="ripple">Ripple</option>
+      <!-- Thêm các loại tiền điện tử khác -->
+    </select>
+    <select id="timeSelect">
+      <option value="7">7 ngày</option>
+      <option value="30">30 ngày</option>
+      <option value="90">90 ngày</option>
+    </select>
+    <canvas id="myChart" width="400" height="200"></canvas>
+    <script src="script.js"></script>
+  </body>
+</html>

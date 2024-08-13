@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.chat-container {
+
+    height: auto;
+    width: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.usernameInput{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#getUsername{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 0px;
+}
+
+#getUsername input{
+    height: 40px;
+    width: calc(100% - 100px);
+    padding-left: 20px;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+#getUsername button{
+    height: 40px;
+    width: 80px;
+}
+
+.chat-window{
+    display: none;
+    flex-direction: column;
+}
+
+
+#messages {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 300px;
+    width: 100%;
+    overflow-y: auto;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.connect{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.userConnected,.userDisconnected {
+    margin: 0;
+    padding: 10px;
+    border-radius: 100px;
+    background-color: rgb(229, 229, 229);
+    font-size: 12px;
+}
+.messageContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.message{
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    background-color: #eeeeee;
+    max-width: 70%;
+    overflow-wrap: break-word;
+}
+.myMessage{
+    align-items: end;
+    justify-content: end;
+}
+
+.myMessage .message{
+    background-color: rgb(0, 195, 255);
+}
+
+.usernameClient{
+    font-size: 12px;
+    color: #787878;
+    margin-top: 0;
+}
+
+#form {
+    display: flex;
+    gap: 10px;
+}
+
+#input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

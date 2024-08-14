@@ -14,10 +14,19 @@
           class="widget"
           draggable="true"
           id="widget1"
-          style="grid-area: 5 / 6 / span 2 / span 3"
+          style="grid-area: 4 / 6 / span 3 / span 5"
         >
           <div class="news-widget">
-            <h2>Tin tức mới nhất</h2>
+            <div class="news-widget-header">
+              <p class="titleNewsWidget">News</p>
+            </div>
+            <div class="btnContainer">
+              <button data-category="feed" class="active">Feed</button>
+              <button data-category="trending">Trending</button>
+              <button data-category="crypto">Crypto</button>
+              <button data-category="macro">Macro</button>
+              <button data-category="stocks">Stocks</button>
+            </div>
             <div id="newsContainer"></div>
           </div>
         </div>
@@ -25,14 +34,19 @@
           class="widget"
           draggable="true"
           id="widget2"
-          style="grid-area: 1 / 6 / span 3 / span 3"
+          style="grid-area: 1 / 6 / span 2 / span 4"
         >
           <div class="weather-widget">
-            <h2>Thời tiết hiện tại</h2>
-            <div id="weatherContainer">
+            <div class="weather-header">
+              <h2 class="titleWeatherWidget">Thời tiết hiện tại</h2>
               <p id="location"></p>
-              <p id="temperature"></p>
-              <p id="description"></p>
+            </div>
+            <div class="weather-widget-container">
+              <img src="" alt="Weather Icon" id="weatherIcon" />
+              <div id="weatherContainer">
+                <p id="temperature"></p>
+                <p id="description"></p>
+              </div>
             </div>
           </div>
         </div>
@@ -69,19 +83,21 @@
           style="grid-area: 1 / 1 / span 3 / span 4"
         >
           <div class="todo-widget">
-            <h2>Danh sách công việc</h2>
-            <input
-              type="text"
-              id="newTask"
-              placeholder="Thêm công việc mới..."
-            />
-            <button id="addTask">Thêm</button>
+            <h2>Todo Task</h2>
+            <div class="inputContainer">
+              <input
+                type="text"
+                id="newTask"
+                placeholder="Thêm công việc mới..."
+              />
+              <button id="addTask">Add</button>
+            </div>
             <ul id="taskList"></ul>
           </div>
         </div>
       </div>
       <button id="reset">Reset</button>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>

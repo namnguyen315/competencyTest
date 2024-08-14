@@ -1,3 +1,5 @@
+import { newsData } from "./newsData.js";
+
 document.addEventListener("DOMContentLoaded", (event) => {
   const widgets = document.querySelectorAll(".widget");
   const dashboard = document.querySelector(".dashboard");
@@ -238,7 +240,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     for (let i = 1; i <= lastDate; i++) {
-      calendarDays.innerHTML += `<div>${i}</div>`;
+      if (i === currentDate.getDate()) {
+        calendarDays.innerHTML += `<div class="current-date">${i}</div>`;
+      } else {
+        calendarDays.innerHTML += `<div>${i}</div>`;
+      }
     }
   }
 
@@ -254,40 +260,43 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   renderCalendar(currentDate);
 
+  const buttons = document.querySelectorAll(".btnContainer button");
   const newsContainer = document.getElementById("newsContainer");
 
-  // Dữ liệu tin tức mẫu
-  const newsData = [
-    {
-      title: "Tin tức 1",
-      description: "Mô tả ngắn gọn về tin tức 1.",
-    },
-    {
-      title: "Tin tức 2",
-      description: "Mô tả ngắn gọn về tin tức 2.",
-    },
-    {
-      title: "Tin tức 3",
-      description: "Mô tả ngắn gọn về tin tức 3.",
-    },
-  ];
-
-  // Hàm hiển thị tin tức
-  function displayNews(news) {
-    newsContainer.innerHTML = "";
-    news.forEach((item) => {
-      const newsItem = document.createElement("div");
-      newsItem.classList.add("news-item");
-      newsItem.innerHTML = `
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
-            `;
-      newsContainer.appendChild(newsItem);
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const category = button.getAttribute("data-category");
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+      displayNews(category);
     });
+  });
+
+  function displayNews(category) {
+    const newsCategory = newsData.news.find(
+      (news) => news.category === category
+    );
+    newsContainer.innerHTML = "";
+
+    if (newsCategory) {
+      newsCategory.articles.forEach((article) => {
+        const newsItem = document.createElement("div");
+        newsItem.classList.add("news-item");
+        newsItem.innerHTML = `
+        <div class= "news-leftside">
+          <h3>${article.title}</h3>
+          <p>${article.author}</p>
+        </div>
+        <div class="news-rightside">
+          <a href="#" target="_blank"><img src="./images/link-icon.png" alt="link icon" width="20px"/></a>
+        </div>
+        `;
+        newsContainer.appendChild(newsItem);
+      });
+    }
   }
 
-  // Hiển thị tin tức mẫu
-  displayNews(newsData);
+  displayNews("feed");
 
   const apiKey = "684b77547c7b6534f56cf19151367908"; // Thay thế bằng API key của bạn
   const city = "Hanoi"; // Thay thế bằng tên thành phố của bạn
@@ -299,10 +308,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
       const location = document.getElementById("location");
       const temperature = document.getElementById("temperature");
       const description = document.getElementById("description");
+      const weatherIcon = document.getElementById("weatherIcon");
 
-      location.textContent = `Vị trí: ${data.name}, ${data.sys.country}`;
-      temperature.textContent = `Nhiệt độ: ${data.main.temp}°C`;
-      description.textContent = `Điều kiện: ${data.weather[0].description}`;
+      console.log(data);
+
+      weatherIcon.src = `./images/${data.weather[0].icon}.png`;
+      location.innerHTML = `<span><image src="./images/location-icon.png" alt="location icon" class= "locationIcon"/></span> ${data.name}, ${data.sys.country}`;
+      temperature.textContent = `${data.main.temp}°C`;
+      description.textContent = `${data.weather[0].description}`;
     })
     .catch((error) => {
       console.error("Error fetching weather data:", error);
@@ -325,7 +338,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       const listItem = document.createElement("li");
       listItem.innerHTML = `
                 <span>${taskText}</span>
-                <button onclick="removeTask(this)">Xóa</button>
+                <button onclick="removeTask(this)">X</button>
             `;
       taskList.appendChild(listItem);
       newTaskInput.value = "";

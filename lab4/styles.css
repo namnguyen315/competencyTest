@@ -6,6 +6,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -100,6 +101,7 @@ button:first-child img{
 }
 
 .weatherResult{
+    width: 100%;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -145,6 +147,7 @@ button:first-child img{
     align-items: center;
     justify-content: space-between;
     margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 .bottomContainer img{
@@ -204,4 +207,81 @@ button:first-child img{
 .notFound p{
     color: white;
     font-size: 25px;
+}
+@media only screen and (max-width: 425px) {
+    .container{
+        width: 90%;
+    }
+
+    .weatherIcon{
+        width: 100%;
+        height: 150px;
+    }
+    #weatherForm input {
+        font-size: 12px;
+    }
+
+    .humidity img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .wind img {
+        width: 40px;
+        height: 40px
+    }
+
+    .humidityData,
+    .windData {
+        color: white;
+        margin: 0;
+        font-size: 20px;
+    }
+    .city{
+        font-size: 30px;
+    }
+
+    .temperature{
+        font-size: 60px;
+    }
+    .description{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width:425px) and ( max-width: 768px) {
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+    .container{
+        margin-top: 0;
+        width: 80%;
+        box-sizing: border-box;
+    }
+
+    #weatherForm input{
+        font-size: 12px;
+    }
+    .humidity img{
+        width: 40px;
+        height: 40px;
+    }
+    .wind img{
+        width: 40px;
+        height: 40px
+    }
+
+    .humidityData,
+    .windData {
+        color: white;
+        margin: 0;
+        font-size: 20px;
+    }
+    .bottomContainer{
+        width: 90%;
+    }
 }

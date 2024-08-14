@@ -50,7 +50,7 @@ function displayWeather(data) {
   const notFoundElem = document.querySelector(".notFound");
 
   notFoundElem.style.display = "none";
-  container.style.height = "750px";
+  container.style.height = "auto";
 
   setTimeout(() => {
     weatherResult.style.display = "flex";
@@ -70,7 +70,7 @@ const displayNotfound = () => {
   const notFoundElem = document.querySelector(".notFound");
 
   weatherResult.style.display = "none";
-  container.style.height = "600px";
+  container.style.height = "auto";
 
   setTimeout(() => {
     notFoundElem.style.display = "flex";

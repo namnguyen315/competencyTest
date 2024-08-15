@@ -19,5 +19,4 @@ const toogleMenu = () => {
   btnMenu.classList.toggle("close");
   navbar.classList.toggle("navInactive");
   contentContainer.classList.toggle("fullScreen");
-  console.log(navbar);
 };

@@ -79,8 +79,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       yMax: dashboard.clientHeight / gridSize,
     };
 
-    console.log(Math.floor(e.clientY));
-
     const isCanPutIn =
       isDropInSide(cursorCoorOnWidget, cursorCoorOnLayout) &&
       isFreeSpace(cursorCoorOnLayout, cursorCoorOnWidget);
@@ -177,7 +175,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     widgetWidth,
     widgetHeight
   ) {
-    console.log("putElementInLayout");
     const draggableElement = document.getElementById(
       cursorCoorOnWidget.idWidget
     );
@@ -309,8 +306,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       const temperature = document.getElementById("temperature");
       const description = document.getElementById("description");
       const weatherIcon = document.getElementById("weatherIcon");
-
-      console.log(data);
 
       weatherIcon.src = `./images/${data.weather[0].icon}.png`;
       location.innerHTML = `<span><image src="./images/location-icon.png" alt="location icon" class= "locationIcon"/></span> ${data.name}, ${data.sys.country}`;

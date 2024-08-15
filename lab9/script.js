@@ -68,8 +68,6 @@ const emailLabels = ["nhà", "công ty", "trường học", "iCloud", "khác"];
 
 const addressLabels = ["nhà", "công ty", "trường học", "khác"];
 
-console.log(phoneContainer.innerHTML);
-
 btnAddPhone.addEventListener("click", () => {
   phoneCount++;
   checkFlag.phone[phoneCount - 1] = false;
@@ -179,7 +177,6 @@ function addContainer(labels, idContainer, count) {
         : idContainer == "addressContainer"
         ? validateAddress(newInput, count)
         : true;
-    console.log(result);
     if (typeof result != "boolean") {
       checkCondition();
       errorMessageContainer.style.display = "block";
@@ -202,7 +199,6 @@ function uploadAvatar(event) {
     const reader = new FileReader();
     reader.onload = function (e) {
       document.getElementById("avatar").src = e.target.result;
-      console.log(e.target.result);
     };
     reader.readAsDataURL(file);
   }
@@ -303,7 +299,6 @@ form.addEventListener("submit", (e) => {
 });
 
 function checkCondition() {
-  console.log(checkFlag.phone);
   if (
     checkFlag.firstName == false ||
     checkFlag.lastName == false ||

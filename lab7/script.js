@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const apiUrl = `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=${days}`;
     const response = await fetch(apiUrl);
     const data = await response.json();
-    console.log(data);
     return data;
   }
 

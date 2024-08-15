@@ -121,7 +121,6 @@ function changeImage(direction) {
   modalImg.classList.add("fade-in");
   currentIndex =
     (currentIndex + direction + thumbnails.length) % thumbnails.length;
-  console.log(currentIndex);
 
   setTimeout(() => {
     modalImg.classList.remove("fade-in");

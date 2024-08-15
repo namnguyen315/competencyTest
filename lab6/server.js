@@ -5,14 +5,14 @@ const socketIo = require("socket.io");
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
+const dotenv = require("dotenv");
+dotenv.config();
 
 app.use(express.static("public"));
 
 let users = {};
 
 io.on("connection", (socket) => {
-  console.log("A user connected");
-
   socket.on("set username", (username) => {
     users[socket.id] = username;
     io.emit("user connected", username);
@@ -25,7 +25,6 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     io.emit("user disconnected", users[socket.id]);
     delete users[socket.id];
-    console.log("User disconnected");
   });
 });
 

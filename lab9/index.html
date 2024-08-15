@@ -5,24 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advanced Form</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <form id="contactForm">
-      <div>
-        <label for="name">Tên:</label>
-        <input type="text" id="name" name="name" required />
+    <form id="contactForm" class="contactForm">
+      <div class="formHeader">
+        <button class="cancel" type="reset">Hủy</button>
+        <h1 class="title">Liên hệ mới</h1>
+        <button class="submit" type="submit" disabled id="submitContactFornm">
+          Xong
+        </button>
       </div>
-      <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+      <div class="avatarContainer">
+        <img
+          src="./images/defaultAvatar.jpg"
+          alt="default avatar"
+          id="avatar"
+        />
+        <input
+          type="file"
+          id="fileInput"
+          accept="image/*"
+          style="display: none"
+        />
+        <span id="uploadText">Thêm ảnh</span>
       </div>
-      <div>
-        <label for="phone">Số điện thoại:</label>
-        <input type="tel" id="phone" name="phone" required />
+      <div class="waraper">
+        <div class="infoContainer">
+          <input type="text" id="firstName" name="firstName" placeholder="Họ" />
+          <div id="firstNameError" class="errorMessage"></div>
+          <input type="text" id="lastName" name="lastName" placeholder="Tên" />
+          <div id="lastNameError" class="errorMessage"></div>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            placeholder="Công ty"
+          />
+          <div id="companyError" class="errorMessage"></div>
+        </div>
+        <div class="phoneContainer" id="phoneContainer">
+          <button class="btnAdd" type="button" id="btnAddPhone">
+            <div class="icon insert">+</div>
+            <p>Thêm số điện thoại</p>
+          </button>
+        </div>
+        <div class="emailContainer" id="emailContainer">
+          <button class="btnAdd" type="button" id="btnAddEmail">
+            <div class="icon insert">+</div>
+            <p>Thêm email</p>
+          </button>
+        </div>
+        <div class="addressContainer" id="addressContainer">
+          <button class="btnAdd" type="button" id="btnAddAddress">
+            <div class="icon insert">+</div>
+            <p>Thêm địa chỉ</p>
+          </button>
+        </div>
       </div>
-      <div id="additionalFields"></div>
-      <button type="button" onclick="addField()">Thêm trường</button>
-      <button type="submit">Gửi</button>
     </form>
     <script src="script.js"></script>
   </body>
